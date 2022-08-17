@@ -18,43 +18,30 @@ namespace WinFormsApp_CarDatabaseManagement
         }
 
         #region MenuItems
-        private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            grpDisplay.Visible = true;
-        }
-
-        private void closeInventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            grpDisplay.Visible = false;
-        }
-
-        private void makeChangesToInventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            grpCRUD.Visible = true;
-        }
-
-        private void closeInventoryToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            grpCRUD.Visible = false;
-        }
-
         private void openAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grpCRUD.Visible = true;
             grpDisplay.Visible = true;
+            lblBegin.Visible = false;
         }
 
         private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grpCRUD.Visible = false;
             grpDisplay.Visible = false;
+            lblBegin.Visible = true;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        #endregion    
+        #endregion
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblSubtitle.SendToBack();
+            lblTitle.SendToBack();
+        }
     }
 }
