@@ -76,10 +76,13 @@ namespace WinFormsApp_CarDatabaseManagement
         public void UpdateRecord(string vin, Car car)
         {
             //the reason we pass the vin and the Car object that already has a vin in it separately is in case the vin itself was
-            //wrong
-            Car carToUpdate = entities.Cars.Find(vin);
-            carToUpdate.VIN = car.VIN;
-            car
+            //what needed to be updated vin holds the old vin of that record and car.VIN will be the updated VIN
+            Car carToUpdate = entities.Cars.Find(vin);  //get the record to be updated in the DBSet and store it in temp variable carToUpdate
+            carToUpdate.VIN = car.VIN; //assign the updated property values passed in the car variable to our DBSet record through carTOUPdate variable
+            carToUpdate.Make = car.Make;
+            carToUpdate.Model = car.Model;
+            carToUpdate.Price = car.Price;
+            entities.SaveChanges(); //save changes causing the updated record in the DBSet to actually be updated in the DB
         }
 
         public Car FindRecord(string vin)
